@@ -1,17 +1,12 @@
 {
-  "name": "alphavantage",
+  "name": "alphavantage-ts",
   "version": "2.0.0",
   "description": "A simple interface to the Alpha Vantage API.",
-  "main": "index.js",
-  "browser": "dist/bundle.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "prettier --print-width 120 --single-quote --write \"./!(dist)**/**.js\"",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "build": "webpack"
+    "build": "rm -rf dist && tsc"
   },
   "keywords": [
     "alpha vantage",
@@ -29,21 +24,18 @@
   },
   "homepage": "https://github.com/zackurben/alphavantage",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=12.0.0"
   },
   "dependencies": {
     "cross-fetch": "^3.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.3",
-    "@babel/preset-env": "^7.6.3",
-    "babel-jest": "^24.9.0",
     "coveralls": "^3.0.6",
     "delay": "^4.3.0",
+    "dotenv": "^8.1.0",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.4"
   },
   "jest": {
     "collectCoverage": true,
@@ -53,8 +45,5 @@
       "**/test/**.js"
     ],
     "testEnvironment": "node"
-  },
-  "optionalDependencies": {
-    "dotenv": "^8.1.0"
   }
 }
