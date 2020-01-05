@@ -8,8 +8,10 @@
     "/dist"
   ],
   "scripts": {
-    "test:watch": "jest --watch",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "precoveralls": "npm run test:coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "rm -rf dist && tsc"
   },
