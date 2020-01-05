@@ -1,11 +1,13 @@
 {
-	"Realtime Currency Exchange Rate": {
-		"1. From_Currency Code": "btc",
-		"2. From_Currency Name": null,
-		"3. To_Currency Code": "usd",
-		"4. To_Currency Name": null,
-		"5. Exchange Rate": "7534.84533924",
-		"6. Last Refreshed": "2017-11-05 19:04:16",
-		"7. Time Zone": "UTC"
-	}
+  "Realtime Currency Exchange Rate": {
+    "1. From_Currency Code": "USD",
+    "2. From_Currency Name": "United States Dollar",
+    "3. To_Currency Code": "JPY",
+    "4. To_Currency Name": "Japanese Yen",
+    "5. Exchange Rate": "108.11000000",
+    "6. Last Refreshed": "2020-01-05 02:40:02",
+    "7. Time Zone": "UTC",
+    "8. Bid Price": "108.10000000",
+    "9. Ask Price": "108.12000000"
+  }
 }

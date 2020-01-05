@@ -1,9 +1,9 @@
 import fetch from "cross-fetch";
-import { FactoryOptions } from ".";
+import { AlphaVantageOptions } from ".";
 import { FunctionType } from "./function-types";
 
 export class APIClient {
-  constructor(private config: FactoryOptions) {}
+  constructor(private config: AlphaVantageOptions) {}
 
   private url = (params: any) => {
     params = Object.keys(params)

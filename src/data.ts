@@ -12,21 +12,7 @@ type DataFn = (
   interval?: TimeSeriesInterval
 ) => Promise<any>;
 
-export interface DataClient {
-  intraday: DataFn;
-  daily: DataFn;
-  daily_adjusted: DataFn;
-  weekly: DataFn;
-  weekly_adjusted: DataFn;
-  monthly: DataFn;
-  monthly_adjusted: DataFn;
-  quote: DataFn;
-
-  search(kewords: string[]): Promise<any>;
-  batch(symbols: string[]): Promise<any>;
-}
-
-export default (apiClient: APIClient): DataClient => {
+export default (apiClient: APIClient) => {
   /**
    * Util function to get the timeseries data.
    *
@@ -60,10 +46,10 @@ export default (apiClient: APIClient): DataClient => {
     monthly: series("TIME_SERIES_MONTHLY"),
     monthly_adjusted: series("TIME_SERIES_MONTHLY_ADJUSTED"),
     quote: series("GLOBAL_QUOTE"),
-    search: (keywords: string[]) =>
+    search: (...keywords: string[]) =>
       apiClient.fn("SYMBOL_SEARCH")({
         keywords
       }),
-    batch: (symbols: string[]) => apiClient.fn("BATCH_STOCK_QUOTES")({ symbols: symbols.join(",") })
+    batch: (...symbols: string[]) => apiClient.fn("BATCH_STOCK_QUOTES")({ symbols: symbols.join(",") })
   };
 };

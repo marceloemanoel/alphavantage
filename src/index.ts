@@ -10,14 +10,17 @@ try {
   require("dotenv").config();
 } catch (e) {}
 
-export interface FactoryOptions {
+export interface AlphaVantageOptions {
   key?: string;
 }
+
+export const MISSING_KEY_MESSAGE =
+  "Missing Alpha Vantage key. You can provide it either on constructor or through the AV_KEY environment variable.";
 
 /**
  * The Alpha Vantage core module.
  */
-export default (config: FactoryOptions = {}) => {
+export default (config: AlphaVantageOptions = {}) => {
   let key;
   try {
     key = process.env.AV_KEY;
@@ -27,9 +30,7 @@ export default (config: FactoryOptions = {}) => {
 
   // Check for config errors.
   if (config.key === undefined) {
-    throw new Error(
-      `Missing Alpha Vantage key. You can provide it either on constructor or through the AV_KEY environment variable.`
-    );
+    throw new Error(MISSING_KEY_MESSAGE);
   }
 
   const client = new APIClient(config);

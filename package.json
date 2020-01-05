@@ -1,9 +1,14 @@
 {
-  "name": "alphavantage-ts",
-  "version": "2.0.0",
-  "description": "A simple interface to the Alpha Vantage API.",
+  "name": "@marceloemanoel/alphavantage",
+  "version": "1.0.0",
+  "description": "A simple interface to the Alpha Vantage API written in TypeScript.",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
+    "test:watch": "jest --watch",
     "test": "jest",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "rm -rf dist && tsc"
@@ -17,33 +22,26 @@
     "stock market",
     "api"
   ],
-  "author": "Zack Urben <zackurben@gmail.com> (http://zackurben.com)",
+  "author": "Marcelo Emanoel B Diniz <marceloemanoel@gmail.com> (http://zackurben.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zackurben/alphavantage"
+    "url": "https://github.com/marceloemanoel/alphavantage"
   },
-  "homepage": "https://github.com/zackurben/alphavantage",
+  "homepage": "https://github.com/marceloemanoel/alphavantage",
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=6.0.0"
   },
   "dependencies": {
     "cross-fetch": "^3.0.4"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.25",
     "coveralls": "^3.0.6",
     "delay": "^4.3.0",
     "dotenv": "^8.1.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "bail": false,
-    "verbose": true,
-    "testMatch": [
-      "**/test/**.js"
-    ],
-    "testEnvironment": "node"
   }
 }
