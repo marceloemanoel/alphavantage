@@ -1,11 +1,11 @@
 import { APIClient } from "./APIClient";
 
-export interface ForexClient {
-  rate(fromCurrency: string, toCurrency: string): Promise<any>;
-}
-
-export default (apiClient: APIClient): ForexClient => {
+export default (apiClient: APIClient) => {
   return {
-    rate: (from_currency, to_currency) => apiClient.fn("CURRENCY_EXCHANGE_RATE")({ from_currency, to_currency })
+    rate: (fromCurrency: string, toCurrency: string) =>
+      apiClient.fn("CURRENCY_EXCHANGE_RATE")({
+        from_currency: fromCurrency,
+        to_currency: toCurrency
+      })
   };
 };

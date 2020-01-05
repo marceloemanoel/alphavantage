@@ -1,5 +1,3 @@
-import { FunctionType } from "./function-types";
-
 /**
  * Time stamp regex that AlphaVantage uses.
  */
@@ -212,12 +210,6 @@ const keys = {
   "8. currency": "currency",
   "9. matchScore": "match_score"
 };
-
-export interface Util {
-  url(params: any): string;
-  polish(data: any): any;
-  fn(type: FunctionType): (params: any) => Promise<any>;
-}
 
 type Key = keyof typeof keys;
 

@@ -5,12 +5,21 @@ export type OutputSize = "compact" | "full";
 export type DataType = "json" | "csv";
 export type TimeSeriesInterval = "1min" | "5min" | "15min" | "30min" | "60min";
 
-type DataFn = (
-  symbol: string,
-  outputSize?: OutputSize,
-  datatype?: DataType,
-  interval?: TimeSeriesInterval
-) => Promise<any>;
+export interface SearchResult {
+  bestMatches: SearchResultMatch[];
+}
+
+export interface SearchResultMatch {
+  symbol: string;
+  name: string;
+  type: string;
+  region: string;
+  marketOpen: string;
+  marketClose: string;
+  timezone: string;
+  currency: string;
+  matchScore: string;
+}
 
 export default (apiClient: APIClient) => {
   /**
@@ -46,10 +55,7 @@ export default (apiClient: APIClient) => {
     monthly: series("TIME_SERIES_MONTHLY"),
     monthly_adjusted: series("TIME_SERIES_MONTHLY_ADJUSTED"),
     quote: series("GLOBAL_QUOTE"),
-    search: (...keywords: string[]) =>
-      apiClient.fn("SYMBOL_SEARCH")({
-        keywords
-      }),
+    search: (...keywords: string[]): Promise<SearchResult> => apiClient.fn("SYMBOL_SEARCH")({ keywords }),
     batch: (...symbols: string[]) => apiClient.fn("BATCH_STOCK_QUOTES")({ symbols: symbols.join(",") })
   };
 };

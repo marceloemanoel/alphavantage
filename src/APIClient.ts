@@ -1,6 +1,7 @@
 import fetch from "cross-fetch";
 import { AlphaVantageOptions } from ".";
 import { FunctionType } from "./function-types";
+import { polish } from "./util";
 
 export class APIClient {
   constructor(private config: AlphaVantageOptions) {}
@@ -40,7 +41,7 @@ export class APIClient {
           throw `An AlphaVantage error occurred. ${data["Information"] || JSON.stringify(data)}`;
         }
 
-        return data;
+        return polish(data);
       });
   };
 }

@@ -1,3 +1,4 @@
+import env from "dotenv";
 import { APIClient } from "./APIClient";
 import crypto from "./crypto";
 import data from "./data";
@@ -7,7 +8,7 @@ import technical from "./technical";
 
 try {
   // Attempt to load the env
-  require("dotenv").config();
+  env.config();
 } catch (e) {}
 
 export interface AlphaVantageOptions {
