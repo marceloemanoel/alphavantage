@@ -1,6 +1,6 @@
 import delay from "delay";
 import "jest";
-import Alpha from "../dist";
+import Alpha from "../src";
 
 const alpha = Alpha();
 

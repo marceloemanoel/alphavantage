@@ -1,6 +1,5 @@
 import "jest";
-import Alpha from "../dist";
-import { MISSING_KEY_MESSAGE } from "../src";
+import Alpha, { MISSING_KEY_MESSAGE } from "../src";
 
 describe("initialization", () => {
   const env = process.env;
