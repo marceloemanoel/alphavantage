@@ -12,8 +12,11 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "precoveralls": "npm run test:coverage",
+    "clean": "rm -rf doc && rm -rf dist",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "build": "rm -rf dist && tsc"
+    "doc": "typedoc",
+    "prebuild": "npm run clean",
+    "build": "tsc"
   },
   "keywords": [
     "alpha vantage",
@@ -38,12 +41,13 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.4",
     "coveralls": "^3.0.6",
-    "delay": "^4.3.0",
     "dotenv": "^8.1.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "ts-jest": "^24.2.0",
+    "typedoc": "^0.15.6",
     "typescript": "^3.7.4"
   }
 }
